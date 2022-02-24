@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+AWS_ACCESS_KEY_ID="$(cat ~/.aws/config | grep aws_access_key_id | head -n 1 | awk '{print$3}')"
+AWS_SECRET_ACCESS_KEY="$(cat ~/.aws/config | grep aws_secret_access_key | head -n 1 | awk '{print$3}')"
+AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY docker-compose $@
